@@ -2,8 +2,6 @@
 Data Structures and Algorithms in C++
 
 
-<<<<<<< HEAD
 # Added in branch quick-test
-=======
-# Merge mistake
->>>>>>> master
+
+1. Have fun!
