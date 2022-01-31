@@ -59,6 +59,7 @@ DoublyLinkedList &DoublyLinkedList::operator=(const DoublyLinkedList &src)
             cursor = cursor->next;
         }
     }
+    return *this;
 }
 
 DoublyLinkedList::~DoublyLinkedList() { this->clear(); }
