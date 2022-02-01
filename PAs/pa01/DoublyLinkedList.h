@@ -12,15 +12,15 @@ class DoublyLinkedList
 private:
     Node *head;
     Node *tail;
-    size_t length;
+    int length;
 
 public:
     DoublyLinkedList();
-    DoublyLinkedList(const DoublyLinkedList &other);
-    DoublyLinkedList &operator=(const DoublyLinkedList &other);
+    DoublyLinkedList(const DoublyLinkedList &src);
+    DoublyLinkedList &operator=(const DoublyLinkedList &src);
     ~DoublyLinkedList();
 
-    size_t getLength() const;
+    int getLength() const;
     Node *getFront() const;
     Node *getBack() const;
 

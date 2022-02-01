@@ -38,7 +38,8 @@ DoublyLinkedList &DoublyLinkedList::operator=(const DoublyLinkedList &src)
     {
         // Clears the current DoublyLinkedList and sets its head and tail to nullptr
         this->clear();
-        head, tail = nullptr;
+        head = nullptr;
+        tail = nullptr;
         Node *cursor = src.head;
 
         // This is the same code in the copy constructor
@@ -74,7 +75,7 @@ Node *DoublyLinkedList::getBack() const
     return tail;
 }
 
-size_t DoublyLinkedList::getLength() const
+int DoublyLinkedList::getLength() const
 {
     return length;
 }
@@ -92,7 +93,9 @@ void DoublyLinkedList::insert(NetworkPacket data, int index)
     // Case 0: List is empty, so nodeToAdd becomes the only node in the DoublyLinkedList
     if (head == nullptr)
     {
-        head, tail = nodeToAdd;
+        head = nodeToAdd;
+        tail = nodeToAdd;
+        length++;
         return;
     }
 
@@ -100,7 +103,7 @@ void DoublyLinkedList::insert(NetworkPacket data, int index)
     Node *cursor = head;
 
     // Loops through entire list until the cursor points at the node of the target index
-    while (cursor != nullptr && currentIndex != index)
+    while (cursor->next != nullptr && currentIndex != index)
     {
         cursor = cursor->next;
         currentIndex++;
@@ -109,19 +112,22 @@ void DoublyLinkedList::insert(NetworkPacket data, int index)
     // Case 1: The node is to be added at the beginning of the DoublyLinkedList.
     // Thus, the node to be added becomes the first node and points to head (the next node).
     // nodeToAdd's previous node is by default nullptr so nothing is changed in that respect.
-    if (cursor == head)
+    if (cursor == head && index == 0)
     {
         nodeToAdd->next = head;
+        if (head != nullptr)
+        {
+            head->prev = nodeToAdd;
+        }
         head = nodeToAdd;
-        cursor = nullptr;
     }
     // Case 2: The node is to be added at the end of the DoublyLinkedList.
     // Thus, the node to be added becomes the final node and becomes the tail (points to nullptr).
-    else if (cursor->prev == tail)
+    else if (cursor->next == nullptr && currentIndex != index)
     {
-        cursor->prev->next = nodeToAdd;
+        cursor->next = nodeToAdd;
+        nodeToAdd->prev = cursor;
         tail = nodeToAdd;
-        cursor = nullptr;
     }
     // Case 3: The node is to be added at a specified index between the first and last (not inclusive).
     // The cursor will stop parsing when it reaches the specified index. Then, the cursor's previous node's next node
@@ -130,8 +136,9 @@ void DoublyLinkedList::insert(NetworkPacket data, int index)
     else
     {
         cursor->prev->next = nodeToAdd;
+        nodeToAdd->prev = cursor->prev;
+        cursor->prev = nodeToAdd;
         nodeToAdd->next = cursor;
-        cursor = nullptr;
     }
     // Updates length of DoublyLinkedList, regardless of where the node was actually added
     length++;
@@ -152,7 +159,8 @@ void DoublyLinkedList::remove(int index)
     // head and tail to nullptr. Decrement the length by 1.
     if (cursor == head && cursor == tail)
     {
-        head, tail = nullptr;
+        head = nullptr;
+        tail = nullptr;
         length--;
     }
     // Case 1: The target node is the first node. In this case, simply set head equal to the next node.
@@ -194,6 +202,8 @@ void DoublyLinkedList::clear()
         cursor->next = nullptr;
         delete cursor;
     }
-    head, tail, cursor = nullptr;
+    head = nullptr;
+    tail = nullptr; 
+    cursor = nullptr;
     length = 0;
 }
