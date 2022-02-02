@@ -65,6 +65,11 @@ DoublyLinkedList &DoublyLinkedList::operator=(const DoublyLinkedList &src)
 
 DoublyLinkedList::~DoublyLinkedList() { this->clear(); }
 
+int DoublyLinkedList::getLength() const
+{
+    return length;
+}
+
 Node *DoublyLinkedList::getFront() const
 {
     return head;
@@ -73,11 +78,6 @@ Node *DoublyLinkedList::getFront() const
 Node *DoublyLinkedList::getBack() const
 {
     return tail;
-}
-
-int DoublyLinkedList::getLength() const
-{
-    return length;
 }
 
 void DoublyLinkedList::insert(NetworkPacket data, int index)
@@ -149,7 +149,12 @@ void DoublyLinkedList::remove(int index)
     Node *cursor = head;
     int currentIndex = 0;
 
-    while (cursor != nullptr && currentIndex != index)
+    if (index < 0 || index > length)
+    {
+        throw std::out_of_range("Index outside of list bounds");
+    }
+
+    while (cursor->next != nullptr && currentIndex != index)
     {
         cursor = cursor->next;
         currentIndex++;
@@ -167,28 +172,32 @@ void DoublyLinkedList::remove(int index)
     else if (cursor == head)
     {
         head = head->next;
+        head->prev = nullptr;
+        delete cursor;
         length--;
     }
     // Case 2: The target node is the last node. In this case, set tail to the node preceding tail. Then set the node
     // after that node to nullptr (since it is the last node in the DoublyLinkedList).
-    else if (cursor->prev == tail)
+    else if (cursor->next == nullptr)
     {
         tail = tail->prev;
+        delete cursor;
         tail->next = nullptr;
         length--;
     }
-    // Case 3: The target node is somewhere between the beginning and end of the DoublyLinkedList (not iclusive). 
+    // Case 3: The target node is somewhere between the beginning and end of the DoublyLinkedList (not iclusive).
     // In this case, set the cursor's previous's next to the cursor's next (essentially skipping the cursor node).
     else
     {
         cursor->prev->next = cursor->next;
+        cursor->next->prev = cursor->prev;
+        delete cursor;
         length--;
     }
 
     cursor->next = nullptr;
     delete cursor;
     cursor = nullptr;
-
 }
 
 // Helper function that streamlines the clearing of a DoublyLinkedList, used in the destructor
@@ -203,7 +212,40 @@ void DoublyLinkedList::clear()
         delete cursor;
     }
     head = nullptr;
-    tail = nullptr; 
+    tail = nullptr;
     cursor = nullptr;
     length = 0;
+}
+
+std::string DoublyLinkedList::toString() const
+{
+    Node *cursor = head;
+    std::string output = "";
+
+    while (cursor != nullptr)
+    {
+        std::string tempOutput = "";
+
+        for (int i = 0; i < 4; i++)
+        {
+            switch (i)
+            {
+            case 0:
+                tempOutput += "SRC: " + cursor->data.source + ", ";
+                break;
+            case 1:
+                tempOutput += "DST: " + cursor->data.destination + ", ";
+                break;
+            case 2:
+                tempOutput += "CKS: " + cursor->data.checksum + ", ";
+                break;
+            case 3:
+                tempOutput += "Data: " + cursor->data.data + "\n ";
+                break;
+            }
+        }
+        output += tempOutput;
+        cursor = cursor->next;
+    }
+    return output;
 }

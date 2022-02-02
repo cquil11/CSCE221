@@ -27,7 +27,7 @@ public:
     void insert(NetworkPacket data, int index);
     void remove(int index);
     void clear();
-    std::string toString();
+    std::string toString() const;
 };
 
 #endif
