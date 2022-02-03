@@ -9,7 +9,7 @@
 
 DoublyLinkedList::DoublyLinkedList() : head(nullptr), tail(nullptr), length(0) {}
 
-DoublyLinkedList::DoublyLinkedList(const DoublyLinkedList &src) : head(nullptr), tail(nullptr)
+DoublyLinkedList::DoublyLinkedList(const DoublyLinkedList &src) : head(nullptr), tail(nullptr), length(0)
 {
     Node *cursor = src.head;
 
