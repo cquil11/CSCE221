@@ -1,0 +1,54 @@
+1. Please list all sources (people, books, webpages, etc.) you consulted regarding this assignment and how they helped: (Sources can be used broadly as reference for the general approach; YOU MUST NOT COPY CODE!)
+
+CSCE 221 Students: 
+
+Other People: 
+
+Printed Material: 
+
+Websites: 
+
+Other: My own CSCE121 code
+
+
+
+
+
+2. Why is the overloaded operator<< a defined outside the class rather than as a member function?  What is the purpose of "friend" in a case like this?
+
+
+
+
+
+3. Why is the overloaded operator<< inline in the NetworkPacket class?  Can you think of an alternative to prevent the potential problem?
+
+
+
+
+
+4. Why does the Node not need a destructor, and thus not be applicable for the Rule of Three?
+
+
+
+
+
+5. Give an example of when a doubly-linked list may be advantageous over a singly-linked one.
+
+
+
+
+
+6. How many steps does it take to pop_front() from the queue to get the next item?  That is, if we think about the number of computations needed to get the next element in the queue as the queue grows to any arbitrary size, how complex is the pop_front() (also called "dequeue") operation?
+
+
+
+
+
+7. What is an advantage of templated classes?
+
+
+
+
+
+8. When creating a templated version of the DoublyLinkedList, why do you need to put "template class DoublyLinkedList<>" for each type at the bottom of the source file?
+
