@@ -13,21 +13,13 @@ DoublyLinkedList::DoublyLinkedList(const DoublyLinkedList &src) : head(nullptr),
 {
     Node *cursor = src.head;
 
-    while (cursor != nullptr)
+    if (cursor != nullptr)
     {
-        Node *nodeToAdd = new Node(cursor->data);
-
-        if (head == nullptr)
+        for (int i = 0; i < src.length; i++)
         {
-            head = nodeToAdd;
-            tail = nodeToAdd;
+            insert(cursor->data, i);
+            cursor = cursor->next;
         }
-        else
-        {
-            tail->next = nodeToAdd;
-            tail = nodeToAdd;
-        }
-        cursor = cursor->next;
     }
 }
 
@@ -43,19 +35,14 @@ DoublyLinkedList &DoublyLinkedList::operator=(const DoublyLinkedList &src)
         Node *cursor = src.head;
 
         // This is the same code in the copy constructor
-        while (cursor != nullptr)
-        {
-            Node *nodeToAdd = new Node(cursor->data);
 
-            if (head == nullptr)
+        Node *cursor = src.head;
+
+        if (cursor != nullptr)
+        {
+            for (int i = 0; i < src.length; i++)
             {
-                head = nodeToAdd;
-                tail = nodeToAdd;
-            }
-            else
-            {
-                tail->next = nodeToAdd;
-                tail = nodeToAdd;
+                insert(cursor->data, i);
             }
             cursor = cursor->next;
         }
