@@ -13,9 +13,9 @@
 class NetworkRouter
 {
 private:
-	// Queue received_requests;
-	// Queue internal_requests;
-	// Queue external_requests;
+	Queue received_requests;
+	Queue internal_requests;
+	Queue external_requests;
 
 public:
 	void receiveRequests(std::istream &is);

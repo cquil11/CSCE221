@@ -36,15 +36,13 @@ DoublyLinkedList &DoublyLinkedList::operator=(const DoublyLinkedList &src)
 
         // This is the same code in the copy constructor
 
-        Node *cursor = src.head;
-
         if (cursor != nullptr)
         {
             for (int i = 0; i < src.length; i++)
             {
                 insert(cursor->data, i);
+                cursor = cursor->next;
             }
-            cursor = cursor->next;
         }
     }
     return *this;
@@ -160,7 +158,6 @@ void DoublyLinkedList::remove(int index)
     {
         head = head->next;
         head->prev = nullptr;
-        delete cursor;
         length--;
     }
     // Case 2: The target node is the last node. In this case, set tail to the node preceding tail. Then set the node
@@ -168,7 +165,6 @@ void DoublyLinkedList::remove(int index)
     else if (cursor->next == nullptr)
     {
         tail = tail->prev;
-        delete cursor;
         tail->next = nullptr;
         length--;
     }
@@ -178,7 +174,6 @@ void DoublyLinkedList::remove(int index)
     {
         cursor->prev->next = cursor->next;
         cursor->next->prev = cursor->prev;
-        delete cursor;
         length--;
     }
 
