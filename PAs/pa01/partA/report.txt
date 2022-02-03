@@ -4,51 +4,70 @@ CSCE 221 Students:
 
 Other People: 
 
-Printed Material: 
+Printed Material: C++ Primer, 5th Edition. Lippman, Lajoie, Moo.
 
-Websites: 
+Websites: StackOverflow twice when trying to udnerstand how templates functioned
 
 Other: My own CSCE121 code
-
-
 
 
 
 2. Why is the overloaded operator<< a defined outside the class rather than as a member function?  What is the purpose of "friend" in a case like this?
 
 
+    From what I understand, the overloaded operator<< is defined outside of the class rather than as a member function so there are two references passed as
+    references. If the operator was defined as a member function, the order of the arguments would matter (because you would be adding
+    *this to the LHS reference parameter). In this specific case, the overloaded operator<< being a free standing function is a good idea because we want to simply 
+    be able to output a stream of many network packets i.e., netPack0 << netPack1 << netPack2.
 
+
+    In a case like this, the reason for defining the non-member function as "friend" is so that the function (delcared outside of the class), 
+    can access all of said class' private data members. In this particular case, source, destination, checksum, and data.
 
 
 3. Why is the overloaded operator<< inline in the NetworkPacket class?  Can you think of an alternative to prevent the potential problem?
 
 
-
+    Inline functions are used on small functions to "avoid function call overhead" (C++ Primer, 5th Edition). In this case, whenever another class calls the
+    operator << function for NetworkPacket, it essentially prevents the actual function from being pushed onto the stack and just
+    puts the contents of the function "inline" where it is being called. As for alternative ways to prevent this problem, I cannot really think of anything besides
+    skipping the function altogether and just putting the code directly where you want to call the function (not very efficient) or perhaps using a lambda expression?
+    I noted while reading my C++ Primer textbook that often times, the compiler will kind of ignore inline keywords and decide "on it's own" what 
+    type of function call will be optimal in terms of memory and runtime.
 
 
 4. Why does the Node not need a destructor, and thus not be applicable for the Rule of Three?
 
 
-
+    The Node does not need a destructor because all nodes in a particular linked list will be deleted in the DoublyLinkedList destructor. Thus, it would be
+    pointless and could potentially (?) lead to a double free error.
 
 
 5. Give an example of when a doubly-linked list may be advantageous over a singly-linked one.
 
 
-
+    There are many advantages of using a doubly-linked list over a singly-linked one. One of the main ones that comes to mind (that we also talked about in class)
+    is that a doubly-linked list is more suitable for a wider range of data structures. For instance, a queue data strucutre where you can add from the front and the back
+    (or add from the front and the back). Furthermore, if reversing a doubly-linked list of elements is quick and easy.
 
 
 6. How many steps does it take to pop_front() from the queue to get the next item?  That is, if we think about the number of computations needed to get the next element in the queue as the queue grows to any arbitrary size, how complex is the pop_front() (also called "dequeue") operation?
 
 
-
+    It takes one step to get the front item of a Queue. This is because the Queue grows from the back (first in, first out).
 
 
 7. What is an advantage of templated classes?
 
 
-
+    The main advantage of using templated classes is you can use one single class structure for a wide variety of types. At the end of the day, this reduces
+    the overall amount of code you have to write, which is good thing. For instance, instead of writing three different Node classes - one for type string, 
+    one for type int and one for type network packet - we can just write one class that accepts all three (and more).
 
 
 8. When creating a templated version of the DoublyLinkedList, why do you need to put "template class DoublyLinkedList<>" for each type at the bottom of the source file?
 
+    When the header and source files are separate (as they are in this specific case), there needs to be a separate instantiation for each rtanslational unit (for <int>, <NetworkPacket>, etc.). 
+    This is because we are just giving the .cpp file a "pattern," there is no actual implemtnation that the compiler can go off of. Clearly, the computer does not know
+    which type you are wishing to instantiate. Thus, you must either put all the definitions in the header file or (in this case), define the instances
+    of all types you wish to use in the .cpp file.

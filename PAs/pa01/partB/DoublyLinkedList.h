@@ -7,11 +7,12 @@
 #include <string>
 #include "Node.h"
 
+template <typename T>
 class DoublyLinkedList
 {
 private:
-    Node *head;
-    Node *tail;
+    Node<T> *head;
+    Node<T> *tail;
     int length;
 
 public:
@@ -21,10 +22,10 @@ public:
     ~DoublyLinkedList();
 
     int getLength() const;
-    Node *getFront() const;
-    Node *getBack() const;
+    Node<T> *getFront() const;
+    Node<T> *getBack() const;
 
-    void insert(NetworkPacket data, int index);
+    void insert(T data, int index);
     void remove(int index);
     void clear();
     std::string toString() const;

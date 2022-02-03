@@ -1,10 +1,11 @@
 #include <iostream>
 #include "NetworkRouter.h"
 
-int main() {
+int main()
+{
 	NetworkRouter net;
 
-	net.loadBlockedAddresses("blocked.txt");
+	// net.loadBlockedAddresses("blocked.txt");
 	net.receiveRequests(std::cin);
 	net.processRequests();
 	net.sendRequests(std::cout);

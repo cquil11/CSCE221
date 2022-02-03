@@ -7,23 +7,24 @@
 #include <string>
 #include "DoublyLinkedList.h"
 
+template <typename T>
 class Queue
 {
 private:
-    DoublyLinkedList data;
+    DoublyLinkedList<T> data;
 
 public:
     bool empty() const
     {
         return data.getFront() == nullptr;
     }
-    void push_back(NetworkPacket d)
+    void push_back(T d)
     {
         data.insert(d, data.getLength());
     }
-    NetworkPacket pop_front()
+    T pop_front()
     {
-        NetworkPacket temp = data.getFront()->data;
+        T temp = data.getFront()->data;
         data.remove(0);
         return temp;
     }

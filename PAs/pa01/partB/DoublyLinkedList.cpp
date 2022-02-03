@@ -6,12 +6,15 @@
 #include <stdexcept>
 #include "DoublyLinkedList.h"
 #include "Node.h"
+#include "NetworkPacket.h"
 
-DoublyLinkedList::DoublyLinkedList() : head(nullptr), tail(nullptr), length(0) {}
+template <typename T>
+DoublyLinkedList<T>::DoublyLinkedList() : head(nullptr), tail(nullptr), length(0) {}
 
-DoublyLinkedList::DoublyLinkedList(const DoublyLinkedList &src) : head(nullptr), tail(nullptr), length(0)
+template <typename T>
+DoublyLinkedList<T>::DoublyLinkedList(const DoublyLinkedList &src) : head(nullptr), tail(nullptr), length(0)
 {
-    Node *cursor = src.head;
+    Node<T> *cursor = src.head;
 
     if (cursor != nullptr)
     {
@@ -23,7 +26,8 @@ DoublyLinkedList::DoublyLinkedList(const DoublyLinkedList &src) : head(nullptr),
     }
 }
 
-DoublyLinkedList &DoublyLinkedList::operator=(const DoublyLinkedList &src)
+template <typename T>
+DoublyLinkedList<T> &DoublyLinkedList<T>::operator=(const DoublyLinkedList &src)
 {
     // Makes sure that the DoublyLinkedList is not a reference to itself
     if (this != &src)
@@ -32,7 +36,7 @@ DoublyLinkedList &DoublyLinkedList::operator=(const DoublyLinkedList &src)
         this->clear();
         head = nullptr;
         tail = nullptr;
-        Node *cursor = src.head;
+        Node<T> *cursor = src.head;
 
         // This is the same code in the copy constructor
 
@@ -48,24 +52,29 @@ DoublyLinkedList &DoublyLinkedList::operator=(const DoublyLinkedList &src)
     return *this;
 }
 
-DoublyLinkedList::~DoublyLinkedList() { this->clear(); }
+template <typename T>
+DoublyLinkedList<T>::~DoublyLinkedList() { this->clear(); }
 
-int DoublyLinkedList::getLength() const
+template <typename T>
+int DoublyLinkedList<T>::getLength() const
 {
     return length;
 }
 
-Node *DoublyLinkedList::getFront() const
+template <typename T>
+Node<T> *DoublyLinkedList<T>::getFront() const
 {
     return head;
 }
 
-Node *DoublyLinkedList::getBack() const
+template <typename T>
+Node<T> *DoublyLinkedList<T>::getBack() const
 {
     return tail;
 }
 
-void DoublyLinkedList::insert(NetworkPacket data, int index)
+template <typename T>
+void DoublyLinkedList<T>::insert(T data, int index)
 {
     // If index is out of bounds, then throw an exception
     if (index < 0 || index > length)
@@ -73,7 +82,7 @@ void DoublyLinkedList::insert(NetworkPacket data, int index)
         throw std::out_of_range("Index outside of list bounds");
     }
 
-    Node *nodeToAdd = new Node(data);
+    Node<T> *nodeToAdd = new Node<T>(data);
 
     // Case 0: List is empty, so nodeToAdd becomes the only node in the DoublyLinkedList
     if (head == nullptr)
@@ -85,7 +94,7 @@ void DoublyLinkedList::insert(NetworkPacket data, int index)
     }
 
     unsigned int currentIndex = 0;
-    Node *cursor = head;
+    Node<T> *cursor = head;
 
     // Loops through entire list until the cursor points at the node of the target index
     while (cursor->next != nullptr && currentIndex != index)
@@ -129,9 +138,10 @@ void DoublyLinkedList::insert(NetworkPacket data, int index)
     length++;
 }
 
-void DoublyLinkedList::remove(int index)
+template <typename T>
+void DoublyLinkedList<T>::remove(int index)
 {
-    Node *cursor = head;
+    Node<T> *cursor = head;
     int currentIndex = 0;
 
     if (index < 0 || index > length)
@@ -183,9 +193,10 @@ void DoublyLinkedList::remove(int index)
 }
 
 // Helper function that streamlines the clearing of a DoublyLinkedList, used in the destructor
-void DoublyLinkedList::clear()
+template <typename T>
+void DoublyLinkedList<T>::clear()
 {
-    Node *cursor = nullptr;
+    Node<T> *cursor = nullptr;
     while (head != nullptr)
     {
         cursor = head;
@@ -199,35 +210,20 @@ void DoublyLinkedList::clear()
     length = 0;
 }
 
-std::string DoublyLinkedList::toString() const
+template <typename T>
+std::string DoublyLinkedList<T>::toString() const
 {
-    Node *cursor = head;
-    std::string output = "";
+    Node<T> *cursor = head;
+
+    std::stringstream ss;
 
     while (cursor != nullptr)
     {
-        std::string tempOutput = "";
-
-        for (int i = 0; i < 4; i++)
-        {
-            switch (i)
-            {
-            case 0:
-                tempOutput += "SRC: " + cursor->data.source + ", ";
-                break;
-            case 1:
-                tempOutput += "DST: " + cursor->data.destination + ", ";
-                break;
-            case 2:
-                tempOutput += "CKS: " + cursor->data.checksum + ", ";
-                break;
-            case 3:
-                tempOutput += "Data: " + cursor->data.data + "\n ";
-                break;
-            }
-        }
-        output += tempOutput;
+        ss << cursor->data << " ";
         cursor = cursor->next;
     }
-    return output;
+    return ss.str();
 }
+
+template class DoublyLinkedList<int>;
+template class DoublyLinkedList<NetworkPacket>;
