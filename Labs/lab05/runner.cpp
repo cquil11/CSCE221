@@ -17,6 +17,9 @@ int main()
     cout << q << endl;
     cout << "Front Index, Back Index: " << q.getFrontIndex() << ", " << q.getBackIndex() << endl;
     q.dequeue();
+    q.dequeue();
+    q.enqueue(5);
+    q.enqueue(6);
     cout << q << endl;
     cout << "Front Index, Back Index: " << q.getFrontIndex() << ", " << q.getBackIndex() << endl;
     return 0;
