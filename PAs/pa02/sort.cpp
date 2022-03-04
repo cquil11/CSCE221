@@ -13,14 +13,14 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	// Parse the arguments
-	// You can assume if -a is present, so is the algorithm
-	// And if -i is present, so is the filename, and so on
+	// Instantiate variables to hold selected algorithm, input file, and output file
+	// as well as if time was specified
 	std::string algorithm = "";
 	std::string filename_in = "";
 	std::string filename_out = "";
 	bool time = false;
 
+	// Parse the arguments
 	int i = 0;
 	while (i < argc)
 	{
@@ -51,10 +51,12 @@ int main(int argc, char *argv[])
 		}
 	}
 
-
 	// Read the input data
 	// If a file was provided with -i, read from the file
 	// Else, read from stdin (cin)
+
+	// Before we can instantiate the array to be sorted, we need its size
+	// Get size from cin, else from file (depending on what the user specified)
 	unsigned size = 0;
 	std::ifstream fileReader;
 
@@ -73,8 +75,10 @@ int main(int argc, char *argv[])
 		fileReader >> size;
 	}
 
-	int arr[size];
+	// Instantiate array
+	int *arr = new int[size];
 
+	// Read the actual input from either the file or cin (depending on user specification)
 	if (filename_in == "")
 	{
 		for (int i = 0; i < size; i++)
@@ -92,9 +96,7 @@ int main(int argc, char *argv[])
 
 	fileReader.close();
 
-	// Set up your timer
-	// You can use the included "chrono" library from C++11!
-	// Hint: The following line of code would give you the current time
+	// Set up timer
 	auto start = std::chrono::high_resolution_clock::now();
 
 	// Apply the sorting algorithm based on the given argument
@@ -112,10 +114,8 @@ int main(int argc, char *argv[])
 	}
 	auto end = std::chrono::high_resolution_clock::now();
 
-	// Stop your timer and find the difference
-	// Hint: The following line can compute the difference of two times in microseconds
-	// auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-	std::chrono::duration<double> duration = end - start;
+	// Stop timer and computer difference (elapsed time)
+	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
 	// Write the output data
 	// If a file was provided with -o, write to that file
@@ -156,14 +156,14 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	// If -t was set, print the elapsed time as "Elapsed Time: <duration>"
+	// If -t was set, print the elapsed time
 	if (time)
 	{
 		std::cout << "Elapsed Time: " << duration.count() << std::endl;
 	}
 
-	// Cleanup; remember to delete your dynamic data array!
-	// delete[] argv;
+	// Cleanup
+	delete [] arr;
 
 	return 0;
 }

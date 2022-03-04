@@ -1,5 +1,13 @@
 #include "SortLib.h"
 
+/**
+ * @brief Retrieves maximum number of digits used on sequence arr
+ * 
+ * @tparam T type of data stored in arr
+ * @param arr array of values to be sorted
+ * @param size size of array to be sorted
+ * @return unsigned 
+ */ 
 template <typename T>
 unsigned getMaxNDigit(const T arr[], unsigned size)
 {
@@ -24,6 +32,14 @@ unsigned getMaxNDigit(const T arr[], unsigned size)
     return max;
 }
 
+/**
+ * @brief Retrieves digit of value at specific digit index [0, nDigits-1]
+ * 
+ * @param value value specified
+ * @param digit digit index specified [0, nDigits - 1]
+ * 
+ * @return digit of value at specified index
+ */
 unsigned getDigitAt(unsigned value, unsigned digit)
 {
     for (int i = 0; i < digit; i++)
@@ -33,6 +49,14 @@ unsigned getDigitAt(unsigned value, unsigned digit)
     return value % 10;
 }
 
+/**
+ * @brief Executes a counting sort on given array
+ * 
+ * @tparam T type of data stored in array
+ * @param size size of given array
+ * @param range range of buckets 
+ * @param digit digit [0-9] being considered
+ */ 
 template <typename T>
 void countSort(T arr[], int size, int range, int digit)
 {
@@ -62,6 +86,12 @@ void countSort(T arr[], int size, int range, int digit)
         arr[i] = output[i];
 }
 
+/**
+ * @brief Performs radix sort on given array of elements
+ * 
+ * @tparam T type of data in array to be sorted
+ * @param size size of array to be sorted
+ */
 template <typename T>
 void SortLib::RadixSort(T arr[], int size)
 {
