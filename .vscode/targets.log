@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Mar  4 12:40:09 2022
+# Make data base, printed on Wed Mar  9 09:16:59 2022
 
 # Variables
 
@@ -15,7 +15,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = VSCODE_WSL_EXT_LOCATION/up:VSCODE_SERVER_TAR/up
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
 # default
 .SHELLFLAGS := -c
 # environment
@@ -53,9 +53,7 @@ PATH = /home/quilicam/.vscode-server/bin/b5205cc8eb4fbaa726835538cd82372cc0222d4
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-754907c8-c702-4c66-8171-dac406a5e356.sock
-# environment
-VSCODE_SERVER_TAR = /mnt/c/Users/cjqui/AppData/Local/Temp/vscode-remote-wsl/b5205cc8eb4fbaa726835538cd82372cc0222d43/vscode-server-stable-linux-x64.tar.gz
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-a529a16f-8523-4272-ba16-beb86360f589.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -143,7 +141,7 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu
 # variable set hash-table stats:
-# Load=66/1024=6%, Rehash=0, Collisions=4/88=5%
+# Load=65/1024=6%, Rehash=0, Collisions=4/87=5%
 
 # Pattern-specific Variable Values
 
@@ -209,7 +207,7 @@ GNUmakefile:
 # strcache performance: lookups = 19 / hit rate = 15%
 # hash-table stats:
 # Load=16/8192=0%, Rehash=0, Collisions=1/19=5%
-# Finished Make data base on Fri Mar  4 12:40:09 2022
+# Finished Make data base on Wed Mar  9 09:16:59 2022
 
  
 make: *** No rule to make target 'all'.  Stop.

@@ -1,6 +1,6 @@
 #include "SortLib.h"
 
-/**git 
+/**
  * Sorts an array by method of "splitting" the array into a sorted and
  * unsorted section. Each value in the unsorted section (arr[1..size-1])
  * are then compared to each element in the sorted array and inserted
