@@ -33,32 +33,32 @@ int main(int argc, char *argv[])
 	dt.train(attributes, data, outcomes, instances);
 
 	// read testing data
-	// attributes.clear();
-	// data.clear();
-	// outcomes.clear();
-	// instances.clear();
-	// readData(testfile, attributes, data, outcomes, instances);
+	attributes.clear();
+	data.clear();
+	outcomes.clear();
+	instances.clear();
+	readData(testfile, attributes, data, outcomes, instances);
 
-	// // test all instances by classifying them through the decision tree
-	// double totalCounted = 0;
-	// double totalCorrect = 0;
-	// for (int i = 0; i < instances.size(); i++)
-	// {
-	// 	vector<double> inst = getInstance(attributes, data, i);
-	// 	int outc = dt.classify(attributes, inst);
-	// 	if (outc == outcomes.at(i))
-	// 	{
-	// 		totalCorrect++;
-	// 	}
-	// 	totalCounted++;
-	// }
+	// test all instances by classifying them through the decision tree
+	double totalCounted = 0;
+	double totalCorrect = 0;
+	for (int i = 0; i < instances.size(); i++)
+	{
+		vector<double> inst = getInstance(attributes, data, i);
+		int outc = dt.classify(attributes, inst);
+		if (outc == outcomes.at(i))
+		{
+			totalCorrect++;
+		}
+		totalCounted++;
+	}
 
-	// // print tree structure
-	// std::cout << dt.levelOrderTraversal() << std::endl;
+	// print tree structure
+	std::cout << dt.levelOrderTraversal() << std::endl;
 
-	// // output accuracy = correct / total
-	// std::cout << "Accuracy: " << totalCorrect / totalCounted << std::endl;
-	std::cout << dt.root->right->right->right->right->right->right->depth << std::endl;
+	// output accuracy = correct / total
+	std::cout << "Accuracy: " << totalCorrect / totalCounted << std::endl;
+	// std::cout << dt.root->right->right->right->right->right->right->depth << std::endl;
 
 	return 0;
 }
