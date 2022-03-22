@@ -8,5 +8,8 @@ Printed Material:
 
 Websites: 
 
+    GeeksForGeeks and other general CS information websites were referenced occasionally, honestly, and in tandem 
+    with lecture notes in order to gain a better understanding of certain course concepts.
+
 Other: 
 

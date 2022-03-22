@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Mar  9 09:16:59 2022
+# Make data base, printed on Sat Mar 19 13:56:45 2022
 
 # Variables
 
@@ -15,7 +15,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = VSCODE_WSL_EXT_LOCATION/up
+WSLENV = VSCODE_WSL_EXT_LOCATION/up:VSCODE_SERVER_TAR/up
 # default
 .SHELLFLAGS := -c
 # environment
@@ -33,7 +33,7 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
 # environment
-_ = /home/quilicam/.vscode-server/bin/b5205cc8eb4fbaa726835538cd82372cc0222d43/node
+_ = /home/quilicam/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/node
 # makefile
 MAKEFILE_LIST := 
 # 'override' directive
@@ -49,11 +49,13 @@ VSCODE_CWD = /mnt/c/Users/cjqui/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/quilicam/.vscode-server/bin/b5205cc8eb4fbaa726835538cd82372cc0222d43/bin/remote-cli:/home/quilicam/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/cjqui/AppData/Local/Programs/Python/Python38-32/Scripts:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Users/cjqui/AppData/Local/Microsoft/WindowsApps:/mnt/c/Python34/Scripts:/mnt/c/Users/cjqui/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/cjqui/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/cjqui/AppData/Local/GitHubDesktop/bin:/snap/bin
+PATH = /home/quilicam/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/bin/remote-cli:/home/quilicam/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/cjqui/AppData/Local/Programs/Python/Python38-32/Scripts:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Users/cjqui/AppData/Local/Microsoft/WindowsApps:/mnt/c/Python34/Scripts:/mnt/c/Users/cjqui/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/cjqui/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/cjqui/AppData/Local/GitHubDesktop/bin:/snap/bin
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-a529a16f-8523-4272-ba16-beb86360f589.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-b596ced0-0cf0-42e7-bd0c-7ec18b9f1317.sock
+# environment
+VSCODE_SERVER_TAR = /mnt/c/Users/cjqui/AppData/Local/Temp/vscode-remote-wsl/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/vscode-server-stable-linux-x64.tar.gz
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -140,8 +142,10 @@ TERM = xterm-256color
 VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 WSL_DISTRO_NAME = Ubuntu
+# environment
+MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=65/1024=6%, Rehash=0, Collisions=4/87=5%
+# Load=67/1024=7%, Rehash=0, Collisions=4/89=4%
 
 # Pattern-specific Variable Values
 
@@ -207,7 +211,7 @@ GNUmakefile:
 # strcache performance: lookups = 19 / hit rate = 15%
 # hash-table stats:
 # Load=16/8192=0%, Rehash=0, Collisions=1/19=5%
-# Finished Make data base on Wed Mar  9 09:16:59 2022
+# Finished Make data base on Sat Mar 19 13:56:45 2022
 
  
 make: *** No rule to make target 'all'.  Stop.

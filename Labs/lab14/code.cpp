@@ -43,9 +43,9 @@ bool isBalanced(const Node<T> *node)
     {
         return isLeftBalanced && isRightBalanced;
     }
-
-
 }
+
+
 
 int main()
 {
