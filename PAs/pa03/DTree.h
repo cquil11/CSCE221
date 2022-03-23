@@ -1,7 +1,9 @@
 #pragma once
 
+#include <sstream>
 #include "DNode.h"
 #include "MaxHeap.h"
+#include "Queue.h"
 
 class DTree
 {
@@ -64,13 +66,45 @@ public:
 
     int classify(
         vector<string> &attributes,
-        vector<double> &data);
-    string levelOrderTraversal()
+        vector<double> &data)
     {
-        
+        DNode *cur = root;
+
+        while (cur->right != nullptr && cur->left != nullptr)
+        {
+            int index = 0;
+            while (index < attributes.size() && cur->key.attribute != attributes.at(index))
+                index++;
+            if (data.at(index) <= cur->key.threshold)
+            {
+                cur = cur->left;
+            }
+            else
+            {
+                cur = cur->right;
+            }
+        }
 
         return 0;
     }
+    string levelOrderTraversal()
+    {
+        Queue<DNode *> q;
+        stringstream ss;
 
-    
+        q.push_back(root);
+
+        while (!q.empty())
+        {
+            DNode *u = q.pop_front();
+            ss << string(u->depth, '\t') << u->key;
+
+            if (u->left)
+                q.push_back(u->left);
+            if (u->right)
+                q.push_back(u->right);
+        }
+
+        return ss.str();
+    }
 };
