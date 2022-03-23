@@ -15,8 +15,7 @@ public:
     DTree() {}
     ~DTree()
     {
-        delete root;
-        // Delete tree
+        deleteDTree(root);
     }
     Decision getMaxInformationGain(
         vector<string> &attributes,
@@ -107,5 +106,17 @@ public:
         }
 
         return ss.str();
+    }
+    void deleteDTree(DNode *cur)
+    {
+        if (!cur)
+        {
+            return;
+        }
+
+        deleteDTree(cur->left);
+        deleteDTree(cur->right);
+
+        delete cur;
     }
 };
