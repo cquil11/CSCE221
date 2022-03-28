@@ -1,5 +1,3 @@
-// TODO: Define the DoublyLinkedList class
-
 #ifndef DOUBLY_LINKEDLIST
 #define DOUBLY_LINKEDLIST
 

@@ -34,11 +34,19 @@ public:
             upheap(getParent(index));
         }
     }
+    /**
+     * @brief Given the index of a node, propagate it down the max
+     * heap if a child has a larger value
+     * 
+     * @param index index of a given node to downheap
+     */
     void downheap(int index)
     {
 
+        // Keeps track of the larger child of the current node
         int largerChild = index;
 
+        // Checks that the node is still in bounds of the heap
         if (getLeft(index) < list.size() && list[getLeft(index)] > list[index])
         {
             largerChild = getLeft(index);
@@ -48,7 +56,8 @@ public:
             largerChild = getRight(index);
         }
 
-        // Makes sure we are not swapping an index with itself
+        // Makes sure we are not swapping an index with itself and calls
+        // downheap on correct node if not
         if (largerChild != index)
         {
             T temp = list.at(index);
@@ -57,6 +66,12 @@ public:
             downheap(largerChild);
         }
     }
+    /**
+     * @brief Heapify the current structure to ensure the rules of a heap
+     *  are maintained; used in conjunction with the
+     *  parameterized constructor that accepts a vector
+     * 
+     */
     void heapify()
     {
         for (int i = list.size() - 1 / 2; i >= 0; i--)
@@ -64,15 +79,27 @@ public:
             downheap(i);
         }
     }
+    /**
+     * @brief Insert an element into the heap; used with upheap
+     * 
+     * @tparam T elem element to be inserted in the MaxHeap
+     */
     void insert(T elem)
     {
+        // Adds the element as the last element in the heap and then
+        // performs upheap on that element to make sure it's in the right spot
         list.push_back(elem);
         upheap(list.size() - 1);
     }
+    /**
+     * @brief Remove max element from the heap; returns max element
+     *  and uses downheap   
+     * 
+     * @return T the maximum (first) element in the heap
+     */
     T removeMax()
     {
         T maxElement = list.at(0);
-        // swap(list.at(0), list.at(list.size() - 1));
         T temp = list.at(0);
         list.at(0) = list.at(list.size() - 1);
         list.at(list.size() - 1) = temp;
@@ -81,23 +108,25 @@ public:
 
         return maxElement;
     }
-    // FIXME (for testing purposes)
-    // void print()
-    // {
-    //     cout << "The vector elements are : ";
-
-    //     for (int i = 0; i < list.size(); i++)
-    //         cout << list.at(i) << ' ';
-    //     cout << endl;
-    // }
 };
 
+/**
+ * @brief Receives an unsorted list and returns a reverse-sorted list
+ *  (largest elements first)
+ * 
+ * @tparam T data type of elements passed in 
+ * @param v unsorted vector 
+ * @return vector<T> vector sorted in MaxHeap order
+ */
 template <typename T>
 vector<T> heapsort(vector<T> v)
 {
+    // Create a new instance of an array to add sorted elements
     vector<T> sorted;
+    // Create a MaxHeap using the constructor (that uses heapify) from the MaxHeap class
     MaxHeap<T> h(v);
 
+    // Copys elements from heap into the vector to be returned
     while (!h.empty())
     {
         sorted.push_back(h.removeMax());

@@ -1,5 +1,3 @@
-// TODO: Write the source functions for the DoublyLinkedList
-
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -227,4 +225,3 @@ std::string DoublyLinkedList<T>::toString() const
 }
 
 template class DoublyLinkedList<DNode*>;
-template class DoublyLinkedList<int>;
