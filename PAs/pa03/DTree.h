@@ -15,7 +15,7 @@ public:
     DTree() {}
     ~DTree()
     {
-        delete root;
+        deleteDTree(root);
     }
     /**
      * @brief Iterates through the attributes vector and
