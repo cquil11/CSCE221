@@ -162,4 +162,21 @@ public:
 
         return ss.str();
     }
+    /**
+     * @brief Deletes the internal DNodes that comprise DTree, including the root node
+     * 
+     * @param cur starting node to delete from, typically roots
+     */
+    void deleteDTree(DNode *cur)
+    {
+        if (!cur)
+        {
+            return;
+        }
+
+        deleteDTree(cur->left);
+        deleteDTree(cur->right);
+
+        delete cur;
+    }
 };
