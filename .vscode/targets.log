@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Mar 19 13:56:45 2022
+# Make data base, printed on Mon Mar 28 09:20:13 2022
 
 # Variables
 
@@ -15,7 +15,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # environment
-WSLENV = VSCODE_WSL_EXT_LOCATION/up:VSCODE_SERVER_TAR/up
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
 # default
 .SHELLFLAGS := -c
 # environment
@@ -53,9 +53,7 @@ PATH = /home/quilicam/.vscode-server/bin/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-b596ced0-0cf0-42e7-bd0c-7ec18b9f1317.sock
-# environment
-VSCODE_SERVER_TAR = /mnt/c/Users/cjqui/AppData/Local/Temp/vscode-remote-wsl/c722ca6c7eed3d7987c0d5c3df5c45f6b15e77d1/vscode-server-stable-linux-x64.tar.gz
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-81e9549f-d461-4200-8c83-459c4d2c11a9.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -145,7 +143,7 @@ WSL_DISTRO_NAME = Ubuntu
 # environment
 MOTD_SHOWN = update-motd
 # variable set hash-table stats:
-# Load=67/1024=7%, Rehash=0, Collisions=4/89=4%
+# Load=66/1024=6%, Rehash=0, Collisions=4/88=5%
 
 # Pattern-specific Variable Values
 
@@ -153,9 +151,9 @@ MOTD_SHOWN = update-motd
 
 # Directories
 
-# . (device 14, inode 35465847065546746): 8 files, no impossibilities.
+# . (device 14, inode 35465847065546746): 9 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 9 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -205,13 +203,13 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 16 / storage = 132 B / avg = 8 B
-# current buf: size = 8162 B / used = 132 B / count = 16 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 17 / storage = 142 B / avg = 8 B
+# current buf: size = 8162 B / used = 142 B / count = 17 / avg = 8 B
 
-# strcache performance: lookups = 19 / hit rate = 15%
+# strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
-# Load=16/8192=0%, Rehash=0, Collisions=1/19=5%
-# Finished Make data base on Sat Mar 19 13:56:45 2022
+# Load=17/8192=0%, Rehash=0, Collisions=1/20=5%
+# Finished Make data base on Mon Mar 28 09:20:13 2022
 
  
 make: *** No rule to make target 'all'.  Stop.
