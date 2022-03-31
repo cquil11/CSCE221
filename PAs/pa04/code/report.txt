@@ -1,0 +1,30 @@
+Please list all sources (people, books, webpages, etc.) you consulted regarding this assignment and how they helped: (Sources can be used broadly as reference for the general approach; YOU MUST NOT COPY CODE!)
+
+CSCE 221 Students: 
+
+Other People: 
+
+Printed Material: 
+
+Websites: 
+
+Other: 
+
+
+2. Regarding inheritance, what are pure virtual functions?
+
+
+
+
+3. What are you observations on the runtime of the different hash table methods?
+
+
+
+
+4. We did an extremely simplified blockchain and cryptocurrency, using the requirement that the hash only needs to begin with '2'.  What mining approach did you create to try to find a valid nonce?
+
+
+
+
+5. How might you approach this problem differently with a more restrictive problem?  For instance, if you change the validator to require the hash begin with "221", you will find the mining operation takes significantly more time.  Briefly discuss this in the context of modern cryptocurrency mining.
+
