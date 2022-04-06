@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Mar 31 12:39:01 2022
+# Make data base, printed on Mon Apr  4 09:17:08 2022
 
 # Variables
 
@@ -53,7 +53,7 @@ PATH = /home/quilicam/.vscode-server/bin/e18005f0f1b33c29e81d732535d8c0e47cafb0b
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-629445e1-aab0-4eb9-8529-e0ee567d5394.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-9849905b-6c33-4f56-bccb-c0c940730fdd.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -209,7 +209,7 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=1/20=5%
-# Finished Make data base on Thu Mar 31 12:39:01 2022
+# Finished Make data base on Mon Apr  4 09:17:08 2022
 
  
 make: *** No rule to make target 'all'.  Stop.
