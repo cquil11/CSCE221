@@ -137,6 +137,8 @@ public:
 		return false;
 	}
 
+	// Test
+
 	int get(std::string k)
 	{
 		unsigned hashIndex = hash(k);
