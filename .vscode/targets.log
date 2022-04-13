@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Mar 31 12:39:01 2022
+# Make data base, printed on Sun Apr 10 18:37:09 2022
 
 # Variables
 
@@ -49,11 +49,11 @@ VSCODE_CWD = /mnt/c/Users/cjqui/AppData/Local/Programs/Microsoft VS Code
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /home/quilicam/.vscode-server/bin/e18005f0f1b33c29e81d732535d8c0e47cafb0b5/bin/remote-cli:/home/quilicam/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/cjqui/AppData/Local/Programs/Python/Python38-32/Scripts:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Users/cjqui/AppData/Local/Microsoft/WindowsApps:/mnt/c/Python34/Scripts:/mnt/c/Users/cjqui/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/cjqui/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/cjqui/AppData/Local/GitHubDesktop/bin:/snap/bin
+PATH = /home/quilicam/.vscode-server/bin/e18005f0f1b33c29e81d732535d8c0e47cafb0b5/bin/remote-cli:/home/quilicam/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Users/cjqui/AppData/Local/Programs/Python/Python38-32/Scripts:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/PuTTY/:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Users/cjqui/AppData/Local/Microsoft/WindowsApps:/mnt/c/Python34/Scripts:/mnt/c/Users/cjqui/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/cjqui/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/cjqui/AppData/Local/GitHubDesktop/bin:/snap/bin
 # environment
 VSCODE_LOG_STACK = false
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-629445e1-aab0-4eb9-8529-e0ee567d5394.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-78d8a138-a694-44f7-821b-4170d94663e3.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -209,7 +209,7 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=1/20=5%
-# Finished Make data base on Thu Mar 31 12:39:01 2022
+# Finished Make data base on Sun Apr 10 18:37:09 2022
 
  
 make: *** No rule to make target 'all'.  Stop.
