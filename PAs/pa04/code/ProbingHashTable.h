@@ -30,4 +30,5 @@ public:
     int remove(std::string key);
     int get(std::string key);
     void printAll(std::string filename);
+    int operator[](std::string key);
 };
