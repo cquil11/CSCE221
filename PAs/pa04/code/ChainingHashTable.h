@@ -24,4 +24,5 @@ public:
     int get(std::string key);
     void printAll(std::string filename);
     int operator[](std::string key);
+    void print();
 };

@@ -6,25 +6,42 @@ Other People:
 
 Printed Material: 
 
-Websites: 
+Websites: StackOverflow and CPP forum for general CPP questions
 
 Other: 
 
 
 2. Regarding inheritance, what are pure virtual functions?
 
-
+Pure virtual functions are functions in a base class that need to be defined (directly in the base class), but must 
+be overridden in any derived classes.
 
 
 3. What are you observations on the runtime of the different hash table methods?
 
+On my device, the probing hash table took approximately 15.8 seconds while the chaining hash table took approximately
+0.7 seconds to run (both on the dictionary.txt input). This is not necessarily surprising to me considering we went over
+the space vs time (chaining vs open addressing) tradeoff in class. However, the magnitude of difference between probing and 
+chaining did surprise me. Chaining being nearly 25 times faster is a considerable amount of time, especially if we wanted to
+increase the size of our hash table. 
 
-
+Furthermore, it does make sense that the probing hash table is slower, because such a hash table does not have the luxury of
+simply allocating new data when a collision occurs (like chaining does). While probing proves to be considerably slower, 
+it uses considerably less space. 
 
 4. We did an extremely simplified blockchain and cryptocurrency, using the requirement that the hash only needs to begin with '2'.  What mining approach did you create to try to find a valid nonce?
 
-
-
+My approach was to simply add characters (between the ASCII values of 48-122, inclusive) one by one to a string and checking if
+that string provided a valid hash. I suppose this is not necessarily the most efficient method because each index of the string will
+only ever have the opportunity to have one character. A better way to implement this would be to try all 72 characters (in the ASCII range)
+at EACH index of the string. This would lead to shorter hash keys. For instance, if I change the "validate_hash" requirement from 2 to 221, my
+nonces went from around 12 characters in length to 572 characters. This is probably not good in the general case.
 
 5. How might you approach this problem differently with a more restrictive problem?  For instance, if you change the validator to require the hash begin with "221", you will find the mining operation takes significantly more time.  Briefly discuss this in the context of modern cryptocurrency mining.
 
+The first thing that comes to mind is using a more powerful computational device to mine, such as GPUs. For instance, if my mining strategy
+were to remain unchanged, and I used a faster device, the efficiency of my mining program would virtually increase. However, this would not be
+enough for even the fastest supercomputers could not keep up with the nearly infinite combinations of strings that could potentially output
+a given hash requirement. In order to improve efficiency as much as possible, better mining algorithms would have to be put in place.
+I know very little about crypto mining, but a quick search on the internet lead me to a list of some of the most popular mining algorithms, which
+are all much more efficient than mine.
