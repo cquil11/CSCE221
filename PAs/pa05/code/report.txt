@@ -1,0 +1,25 @@
+1. Please list all sources (people, books, webpages, etc.) you consulted regarding this assignment and how they helped: (Sources can be used broadly as reference for the general approach; YOU MUST NOT COPY CODE!)
+
+CSCE 221 Students: 
+
+Other People: 
+
+Printed Material: 
+
+Websites: 
+
+Other: 
+
+
+2. Describe the approach you used to implement Dijkstra's algorithm.  This should include a description of the data structures you used and if they come from STL, your own implementation, or other (such as the provided Locator Heap).
+
+
+
+
+3. Describe another approach which could be used to implement Dijkstra's algorithm.  For instance, this could include a contrast between storing flags such as "visited" in an auxillary structure as opposed to inside the vertex.
+
+
+
+
+4. Give an example of using an STL data structure such as map or unordered_map to store and access auxillary data used in Dijkstra's algorithm.
+
