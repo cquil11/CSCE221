@@ -1,25 +1,47 @@
 1. Please list all sources (people, books, webpages, etc.) you consulted regarding this assignment and how they helped: (Sources can be used broadly as reference for the general approach; YOU MUST NOT COPY CODE!)
 
-CSCE 221 Students: 
+CSCE 221 Students: N/A
 
-Other People: 
+Other People: N/A
 
-Printed Material: 
+Printed Material: N/A
 
-Websites: 
+Websites: StackOverflow and GeeksForGeeks for general C++ questions
 
-Other: 
+Other: N/A
 
 
 2. Describe the approach you used to implement Dijkstra's algorithm.  This should include a description of the data structures you used and if they come from STL, your own implementation, or other (such as the provided Locator Heap).
 
-
-
+In order to implement Dijkstra's algorithm, I used the LocatorHeap class provided to us in the starter code. 
+While I was slightly confused on the workings of the LocatorHeap when I began the assignment, I soon realized that
+the class was actually making my life a lot easier. If I was to have used a "regular" heap implementation, then everytime
+the current Vertex's "distanceTo" changes, the heap has to search for and then update the corresponding Vertex in the heap.
+However, with the LocatorHeap, every Vertex inserted into the heap has a locator pointer associated with it. This allows said
+Vertex to be accessed and updated directly (as opposed to searching for it first). This makes this implementation of the algorithm
+slightly more efficient (especially for large sets of data). As far as storing and "tracking" the actual data, I used the skeleton
+code already provided to me in order to track things such as "distanceTo" and "visited." The rest of the implementation of the algorithm was based off
+the pseudocode from lecture slides 35. To avoid pedantry, I will spare the reiteration of the exact steps of Dijkstra's algorithm,
+but above I have explained my overall implementation in terms of data structures.
 
 3. Describe another approach which could be used to implement Dijkstra's algorithm.  For instance, this could include a contrast between storing flags such as "visited" in an auxillary structure as opposed to inside the vertex.
 
-
-
+Surely, there are almost always many different ways to implement the same data structure. In this implementation, I chose to use the 
+tools provided to me which included a nice encapsulation of data in the Vertex and Edge class. This way, not auxillary data structures
+were really needed (besides lists of course). When working with simpler graph implementations in lab, we often used auxillary
+structures such as "visited" lists which were paralell to the list of actual vertices that told us which nodes had and had not
+been visited (usually of type boolean). Frankly, the same thing can be said about all of the data members that are encapsulated in
+the Vertex class. For intance, pathTo could simply be stored as a vector of vector of vertices and distanceTo could be stored as a list
+of floats. In general, since we are using C++ which has the ability to create and use classes (as opposed to its older brother, C, a procedural language),
+I like to take advantage of this and store all of the data for a Vertex in one place. 
 
 4. Give an example of using an STL data structure such as map or unordered_map to store and access auxillary data used in Dijkstra's algorithm.
 
+In this project, since the labels of the vertices were in order and integers, it was easy to store them and access them (because vertex 0 is just 
+vertices[0], for instance). We could also store these vertices in an STL map. This would become especially useful is the labels of the vertices
+were strings or chars because then they could be hashed (indexed) to an integer value. Furthermore, Dijkstra's algorithm can also be implemented
+using STL sets. We briefly touched on this in lab, but the general idea is to make a set of pairs (weigts and vertices). Then, the algorithm is
+similar to a priority queue implementation. Note that this implementation would most likely used with an adjacency matrix.
+
+
+Thanks for a great semester!!! I had a lot of fun with these PAs.

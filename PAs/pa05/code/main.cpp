@@ -11,18 +11,19 @@ using namespace std;
 int main(int argc, const char *argv[])
 {
     cout << "Filename of graph to load: ";
+    // Reads in filename
     string filename;
     cin >> filename;
 
     fstream fileReader(filename);
 
+    // Creates graph and variables to hold data to be read in
+    // (first and last lines)
     Graph graph;
-    unsigned numVertices;
-    unsigned numEdges;
+    unsigned numVertices, numEdges;
+    unsigned startVertex, endVertex;
 
-    unsigned startVertex;
-    unsigned endVertex;
-
+    // If the fstream objet was created succesfully, read the data
     if (fileReader.is_open())
     {
         string line;
@@ -53,25 +54,14 @@ int main(int argc, const char *argv[])
         stringstream ss2(line);
         ss2 >> startVertex >> endVertex;
     }
-    // TODO: next five code snippets
-    // Snippet 1: read filename and open file
-
-    // Snippet 2: get number graph size
-
-    // Snippet 3: create graph
-
-    // Snippet 4: read edges
-
-    // Snippet 5: read start and end of path
 
     cout << "Shortest path from " << startVertex << " to " << endVertex << ":" << endl;
-    // FIXME: testing purposes
-    // graph.print();
     vector<Vertex *> path;
 
-    // // TODO: call shortest path on your graph for the sstart and end verices and save result to path
+    // Retrieves the shortest path between the start and end nodes
     path = graph.shortestPath(startVertex, endVertex);
 
+    // Prints out the shortest path
     for (auto i : path)
     { // this is a for-each loop
         cout << i->label << " ";
