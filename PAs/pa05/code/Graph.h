@@ -49,18 +49,53 @@ protected:
 public:
     Graph() {}
 
-    // Graph(const Graph &other)
-    // {
-    //     for (int i = 0; i < other.vertices.size(); i++)
-    //     {
-    //         Vertex *v;
-    //         for ()
-    //     }
-    //     for (int i = 0; i < other.edges.size(); i++)
-    //     {
-    //         edges.push_back(other.edges[i]);
-    //     }
-    // }
+    Graph(const Graph &other)
+    {
+        for (int i = 0; i < other.vertices.size(); i++)
+        {
+            insertVertex(i);
+        }
+
+        for (int i = 0; i < other.edges.size(); i++)
+        {
+            insertEdge(other.edges[i]->v1->label, other.edges[i]->v2->label, other.edges[i]->weight);
+        }
+        // for (int i = 0; i < other.vertices.size(); i++)
+        // {
+        //     vector<Edge *> tempEdges;
+        //     vector<Vertex *> tempPathTo;
+        //     for (int j = 0; j < other.vertices[i]->edges.size(); j++)
+        //     {
+        //         tempEdges.push_back(other.vertices[i]->edges[j]);
+        //     }
+        //     for (int j = 0; j < other.vertices[i]->pathTo.size(); j++)
+        //     {
+        //         tempPathTo.push_back(other.vertices[i]->pathTo[j]);
+        //     }
+
+        // }
+        // for (int i = 0; i < other.edges.size(); i++)
+        // {
+        //     edges.push_back(other.edges[i]);
+        // }
+    }
+
+    Graph &operator=(const Graph &other)
+    {
+        if (this != &other)
+        {
+            for (int i = 0; i < other.vertices.size(); i++)
+            {
+                insertVertex(i);
+            }
+
+            for (int i = 0; i < other.edges.size(); i++)
+            {
+                insertEdge(other.edges[i]->v1->label, other.edges[i]->v2->label, other.edges[i]->weight);
+            }
+        }
+        return *this;
+    }
 
     ~Graph()
     {

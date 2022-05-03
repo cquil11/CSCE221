@@ -65,7 +65,8 @@ int main(int argc, const char *argv[])
     // Snippet 5: read start and end of path
 
     cout << "Shortest path from " << startVertex << " to " << endVertex << ":" << endl;
-    graph.print();
+    // FIXME: testing purposes
+    // graph.print();
     vector<Vertex *> path;
 
     // // TODO: call shortest path on your graph for the sstart and end verices and save result to path
